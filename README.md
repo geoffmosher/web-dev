@@ -29,3 +29,23 @@ app.get('/auth/google/callback',
   (req, res) => res.send('Login Successful!'));
 
 app.listen(3000, () => console.log("Server running on http://localhost:3000"));
+
+**package.json**
+{
+  "name": "google-login-sample",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.0",
+    "passport": "^0.6.0",
+    "passport-google-oauth20": "^2.0.0"
+  }
+}
+
+**Instructions**
+Replace YOUR_GOOGLE_CLIENT_ID and YOUR_GOOGLE_CLIENT_SECRET with credentials from the Google Developer Console.
+Install dependencies using npm install.
+Run the app with npm start.
