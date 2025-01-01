@@ -1,6 +1,8 @@
 # web-dev
-**Web development code samples and tutorials**
-1. Google OAuth Login API for Squarespace - basic NodeJS example 
+**Code samples and tutorials**
+
+**1. Google OAuth Login API for Squarespace - basic NodeJS example **
+
 const express = require("express");
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
