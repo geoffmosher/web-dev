@@ -1,2 +1,2 @@
-# web-dev
-**Code samples and tutorials**
+# Google Login API for Squarespace
+Basic Node.js example for Google OAuth login
