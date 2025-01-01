@@ -46,6 +46,6 @@ app.listen(3000, () => console.log("Server running on http://localhost:3000"));
 }
 
 **Instructions**
-Replace YOUR_GOOGLE_CLIENT_ID and YOUR_GOOGLE_CLIENT_SECRET with credentials from the Google Developer Console.
+Replace YOUR_GOOGLE_CLIENT_ID and YOUR_GOOGLE_CLIENT_SECRET with credentials from the Google Developer Console. 
 Install dependencies using npm install.
 Run the app with npm start.
