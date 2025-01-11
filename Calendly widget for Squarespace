@@ -1,1 +1,28 @@
+From your setup account,
 
+Calendly steps 
+Step 1: Make sure you have at least one event type: e.g., a “one-on-one” meeting for 30 minutes. Anything like that. 
+Step 2: Click the “Share” button.
+
+Squarespace steps
+Step 1: Tab over to “Add to website”.
+Step 2: Click “Inline embed” and “Continue”.
+Step 3: Copy the entire JS “Embed Code” snippet from the box on the right — manually or via the “Copy Code” button.
+        - Make sure you have your “Hello, World!” Code Block set up to receive the source code. 
+          It should be in the center of the section in which you intend Calendly to live. 
+Step 4: Copy the code into the Code Block and Save out.
+
+Source code
+
+<!-- Calendly inline widget begin -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/iamgeoffmosher/new-meeting" style="min-width:320px;height:700px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<!-- Calendly inline widget end -->
+
+CSS for hiding the “We respect your privacy” overlay of the Calendly widget
+
+/** 
+* Hide Calendly Privacy Overlay **/
+ iframe[src*="calendly.com"] + div { 
+display: none !important; 
+}
