@@ -66,3 +66,192 @@ Suggestions? Bug fixes? Feature ideas? Feel free to fork and PR, or reach out vi
 ## License
 
 MIT License. Use it, remix it, make it yours.
+
+---
+
+## 👨🏼‍💻 SOURCE CODE
+
+<!-- START: Swiper Blog Carousel for Squarespace -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+<style>
+  .swiper-container {
+    width: calc(100vw - 100px);
+    margin-left: calc(-50vw + 50% + 50px);
+    padding: 20px 0;
+    background-color: #EAF4F6;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .swiper-wrapper {
+    margin-left: 0;
+  }
+
+  .swiper-slide {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    overflow: hidden;
+    font-family: "Adobe Garamond Pro", serif;
+    color: #3d3d3d;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    max-width: 360px;
+    box-sizing: border-box;
+  }
+
+  .blog-thumbnail-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 66.66%; /* 3:2 aspect ratio */
+    overflow: hidden;
+  }
+
+  .blog-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .blog-content {
+    padding: 16px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blog-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.5em;
+    margin: 0 0 0.3em;
+    color: black;
+  }
+
+  .blog-date {
+    font-size: 0.85em;
+    color: #ec593f;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 0.5em;
+  }
+
+  .blog-excerpt {
+    font-size: 1em;
+    line-height: 1.4em;
+    flex-grow: 1;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #ec593f;
+  }
+
+  .swiper-button-next {
+    right: 60px;
+  }
+
+  .swiper-button-prev {
+    left: 60px;
+  }
+
+  .swiper-slide.view-more-slide {
+    background-color: transparent;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    box-shadow: none;
+  }
+
+  .view-more-button {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 2px solid #ec593f;
+    border-radius: 6px;
+    background: white;
+    color: #ec593f;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .view-more-button:hover {
+    background-color: #ec593f;
+    color: white;
+  }
+</style>
+
+<div class="swiper-container">
+  <div class="swiper-wrapper" id="blog-carousel"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  fetch("https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/your-blog-name/blog")
+    .then((res) => res.json())
+    .then((data) => {
+      const container = document.getElementById("blog-carousel");
+      data.items.slice(0, 5).forEach((post) => {
+        const slide = document.createElement("div");
+        slide.className = "swiper-slide";
+
+        const thumbnail = post.thumbnail ||
+          (post.enclosure ? post.enclosure.link : "https://via.placeholder.com/600x400?text=No+Image");
+
+        slide.innerHTML = `
+          <a href="${post.link}" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%;">
+            <div class="blog-thumbnail-container">
+              <img class="blog-thumbnail" src="${thumbnail}" alt="${post.title}" />
+            </div>
+            <div class="blog-content">
+              <div class="blog-title">${post.title}</div>
+              <div class="blog-date">${new Date(post.pubDate).toLocaleDateString()}</div>
+              <div class="blog-excerpt">${post.description.substring(0, 120)}...</div>
+            </div>
+          </a>
+        `;
+
+        container.appendChild(slide);
+      });
+
+      const moreSlide = document.createElement("div");
+      moreSlide.className = "swiper-slide view-more-slide";
+      moreSlide.innerHTML = `<a href="/blog" class="view-more-button">View more</a>`;
+      container.appendChild(moreSlide);
+
+      new Swiper(".swiper-container", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 2.8,
+            centeredSlides: false,
+          },
+        },
+      });
+    });
+</script>
+<!-- END: Swiper Blog Carousel -->
+
+
