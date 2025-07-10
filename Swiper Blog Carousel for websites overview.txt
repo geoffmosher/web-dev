@@ -1,0 +1,28 @@
+Swiper Blog Carousel for websites overview
+
+This project shows how to embed a modern, responsive blog carousel into a website using Swiper.js and a free RSS-to-JSON service. Originally built for a Squarespace site, the code can be easily adapted to work with other platforms like WordPress, Framer, Webflow, and any CMS that allows code injection.
+
+No third-party plugins. No bloated frameworks. Just clean, customizable HTML, CSS, and JavaScript that feels native.
+
+---
+
+## 💡 Steps to Implement
+
+1. Copy the embed code into your CMS (via code block, HTML module, etc.)
+2. Swap in your blog’s RSS feed (e.g., via Feedburner or self-hosted RSS)
+3. Adjust the styling: colors, fonts, spacing, and CTA language
+4. Add an optional “View more” button at the end to drive deeper engagement
+
+---
+
+## ✅ Benefits
+
+- Free and embeddable on most CMS platforms
+- Fully responsive and mobile-friendly
+- Clean, semantic markup that’s easy to modify
+- Works with any RSS feed via rss2json.com
+- Optional CTA for linking to full blog archives
+
+---
+
+Built for Squarespace, but ready for the open web.
